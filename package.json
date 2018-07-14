@@ -1,0 +1,25 @@
+{
+  "name": "expaft",
+  "version": "1.0.0",
+  "description": "⏱️ Tiny Expiration Helper For Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EKMN/expaft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EKMN/expaft/issues"
+  },
+  "homepage": "https://github.com/EKMN/expaft#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "pretty-ms": "^3.2.0"
+  },
+  "dependencies": {}
+}
