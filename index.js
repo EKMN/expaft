@@ -1,5 +1,3 @@
-const prettyMs = require('pretty-ms')
-
 // units
 const millisecond = 1
 const second = 1000 * millisecond
@@ -16,6 +14,15 @@ const days = (time) => time * day
 const now = () => +new Date()
 
 const tokenize = (dateString) => {
+  // remove leading and trailing spaces
+  dateString = dateString.trim()
+
+  // throw an error if dateString is empty
+  if (!dateString || !dateString.length) {
+    throw Error(`Invalid argument: argument cannot be empty`)
+  }
+
+  // splits the string into tokens and converts int-able strings into proper ints
   const tokens = dateString.split(' ').map((token) => {
     return !isNaN(+token) ? +token : token
   })
@@ -23,6 +30,12 @@ const tokenize = (dateString) => {
   const types = tokens.filter((token) => typeof token === 'string')
   const values = tokens.filter((token) => typeof token === 'number')
 
+  // fail if we don't have any tokens or if dateString is empty
+  if (!tokens) {
+    throw Error(`Invalid argument: improperly formatted string`)
+  }
+
+  // fail if we don't have as many types as values
   if (types.length !== values.length) {
     const guiltyParty = types.length > values.length ? 'string' : 'number'
     const oppositeParty = guiltyParty === 'string' ? 'number' : 'string'
@@ -89,18 +102,5 @@ const expaft = {
     )
   }
 }
-
-console.log(tokenize('16 days 1 hour 22 minutes 2 seconds'))
-
-const testCases = {
-  'Ten hours and 1 minute ahead': `${new Date()} --> ${new Date(expaft.time('10 hrs 1 min'))}`,
-  '365 days 16 hours 52 minutes 500 ms': prettyMs(expaft.delta('365 days 16 hours 52 minutes 500 ms')),
-  '23 hours 59 minutes 58 seconds 500 ms': prettyMs(expaft.delta('23 hours 59 minutes 58 seconds 500 ms')),
-  '16 days 1 hour 22 minutes 2 seconds': prettyMs(expaft.delta('16 days 1 hour 22 minutes 2 seconds')),
-  '72 hours 30 seconds': prettyMs(expaft.delta('72 hours 30 seconds'))
-  // '21 hours .3s 0as seconds': prettyMs(expaft('21 hours 30as seconds'))
-}
-
-console.log(testCases)
 
 module.exports = expaft

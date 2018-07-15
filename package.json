@@ -4,7 +4,7 @@
   "description": "⏱️ Tiny Expiration Helper For Node",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "repository": {
     "type": "git",
