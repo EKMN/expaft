@@ -9,7 +9,7 @@ test('Ten hours and 1 minute ahead', (t) => {
   t.is(time, expected)
 })
 
-test('365 days 16 hours 52 minutes 500 ms', (t) => {
+test('365 days 16 hours 52 minutes 500 ms ahead', (t) => {
   const time = expaft.delta('365 days 16 hours 52 minutes 500 ms')
   const expected = 1000 * 60 * 60 * 24 * 365 + 1000 * 60 * 60 * 16 + 1000 * 60 * 52 + 500
   t.is(time, expected)

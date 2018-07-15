@@ -57,11 +57,14 @@ const timeFrom = (token) => {
   switch (type.toLowerCase()) {
     case 'milliseconds':
     case 'millisecond':
+    case 'msecs':
+    case 'msec':
     case 'ms':
       return milliseconds(value)
     case 'seconds':
     case 'second':
     case 'secs':
+    case 'sec':
     case 's':
       return seconds(value)
     case 'minutes':
