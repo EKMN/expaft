@@ -14,11 +14,16 @@ const days = (time) => time * day
 const now = () => +new Date()
 
 const tokenize = (dateString) => {
+  // throw an error if dateString is missing
+  if (!dateString) {
+    throw Error('Invalid argument: argument is missing')
+  }
+
   // remove leading and trailing spaces
   dateString = dateString.trim()
 
   // throw an error if dateString is empty
-  if (!dateString || !dateString.length) {
+  if (!dateString.length) {
     throw Error(`Invalid argument: argument cannot be empty`)
   }
 
@@ -40,7 +45,7 @@ const tokenize = (dateString) => {
     const guiltyParty = types.length > values.length ? 'string' : 'number'
     const oppositeParty = guiltyParty === 'string' ? 'number' : 'string'
     const failReason = guiltyParty === 'string' ? types[types.length - 1] : values[values.length - 1]
-    let message = `Tokenizer error: Invalid argument. Expected a ${guiltyParty} but found a ${oppositeParty}. Failed item: ${failReason}`
+    let message = `Tokenizer error: Invalid argument. Expected a ${oppositeParty} but found a ${guiltyParty}. Failed token: ${failReason}`
     throw Error(message)
   }
 
@@ -89,21 +94,22 @@ const timeFrom = (token) => {
   }
 }
 
-const expaft = {
-  time: (time) => {
-    const currently = now()
-    return tokenize(time).reduce((timeTotal, token) => {
+// core function
+const expaft = (time) => {
+  const currently = now()
+  return tokenize(time).reduce((timeTotal, token) => {
+    return timeTotal + timeFrom(token)
+  }, currently)
+}
+
+// enhancer
+expaft.delta = (time) => {
+  const currently = now()
+  return (
+    tokenize(time).reduce((timeTotal, token) => {
       return timeTotal + timeFrom(token)
-    }, currently)
-  },
-  delta: (time) => {
-    const currently = now()
-    return (
-      tokenize(time).reduce((timeTotal, token) => {
-        return timeTotal + timeFrom(token)
-      }, currently) - currently
-    )
-  }
+    }, currently) - currently
+  )
 }
 
 module.exports = expaft
