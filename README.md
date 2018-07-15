@@ -5,7 +5,7 @@
 ### expaft(string)
 Expects a string and returns a (then > now) unix timestamp for a later date
 ### expaft.delta(string)
-Expects a string and returns the delta between now and and a later date in milliseconds
+Expects a string and returns the delta between now and a later date in milliseconds
 
 ## How to use
 ```js

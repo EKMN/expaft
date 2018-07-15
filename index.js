@@ -106,7 +106,7 @@ const expaft = (time) => {
   }, currently)
 }
 
-// delta function - returns the delta between now and and a later date in milliseconds
+// delta function - returns the delta between now and a later date in milliseconds
 expaft.delta = (time) => {
   const currently = now()
   return (
