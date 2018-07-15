@@ -1,11 +1,11 @@
 {
   "name": "expaft",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "⏱️ Tiny Expiration Helper For Node",
   "main": "index.js",
   "scripts": {
     "test": "ava --verbose",
-    "publish": "npm test && npm publish"
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
