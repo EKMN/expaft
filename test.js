@@ -81,3 +81,9 @@ test('Inversed order (+ extra number)', (t) => {
     expaft(' 100 secs 500 mins 500')
   })
 })
+
+test('Valid format but invalid type', (t) => {
+  t.throws(() => {
+    expaft(' 100 zec ')
+  })
+})

@@ -1,6 +1,6 @@
 {
   "name": "expaft",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "⏱️ Tiny Expiration Helper For Node",
   "main": "index.js",
   "scripts": {
