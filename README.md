@@ -1,18 +1,26 @@
+![Code showcase](showcase.png)
+
 # expaft
+
 ⏱️Tiny Expiration Helper For Node
 
 ## API
+
 ### expaft(string)
+
 Expects a string and returns a (then > now) unix timestamp for a later date
+
 ### expaft.delta(string)
+
 Expects a string and returns the delta between now and a later date in milliseconds
 
 ## How to use
-```js
-const expaft = require('expaft')
 
-const laterDate = expaft('16 hrs 200 mins 500 secs')
-const deltaNowThen = expaft.delta('16 hrs 200 mins 500 secs 200 ms')
+```js
+const expaft = require("expaft")
+
+const laterDate = expaft("16 hrs 200 mins 500 secs")
+const deltaNowThen = expaft.delta("16 hrs 200 mins 500 secs 200 ms")
 
 console.log(laterDate)
 // => a valid timestamp for a later date
@@ -25,7 +33,9 @@ console.log(deltaNowThen)
 ```
 
 ## Format
+
 ### There are two types of keys
+
 - A **Type** that represents a unit of time (e.g. 'minute', 'hour', 'hours', 'seconds')
 - An **Amount** integer
 
@@ -40,9 +50,11 @@ or
 ```
 
 ## Available time units & their aliases
-*All time units are case-insensitive*
+
+_All time units are case-insensitive_
 
 ### Milliseconds
+
 - milliseconds
 - millisecond
 - msecs
@@ -50,6 +62,7 @@ or
 - ms
 
 ### Seconds
+
 - seconds
 - second
 - secs
@@ -57,6 +70,7 @@ or
 - s
 
 ### Minutes
+
 - minutes
 - minute
 - mins
@@ -64,6 +78,7 @@ or
 - m
 
 ### Hours
+
 - hours
 - hour
 - hrs
@@ -71,7 +86,7 @@ or
 - h
 
 ### Days
+
 - days
 - day
 - d
-
