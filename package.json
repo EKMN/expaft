@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/EKMN/expaft#readme",
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^2.0.0",
     "pretty-ms": "^3.2.0"
   },
   "dependencies": {}
