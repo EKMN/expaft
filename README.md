@@ -1,4 +1,4 @@
-![Code showcase](showcase.png)
+![Code showcase](cover.png)
 
 # expaft
 
